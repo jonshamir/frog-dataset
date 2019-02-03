@@ -8,5 +8,5 @@ Dataset of frogs on a white background for ML experiments
 
 Includes a preprocessing script that does the following:
 * Makes the background of the images pure white
-* Trims the empty whitespace so that the frog fills the frame
-* Resamples the image to a target size (64x64 by default)
+* Trims empty whitespace so that the frogs fill the frame
+* Resamples the images to a target size (64x64 by default)
