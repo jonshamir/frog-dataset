@@ -86,17 +86,17 @@ for img_path in img_paths:
     img_size = img.shape;
     if img_size[0] < img_size[1]:
         img_ratio = img_size[0] / img_size[1]
-        img_resized = resize(img, (int(64*img_ratio), 64), mode='constant')
+        img_resized = resize(img, (int(TARGET_SIZE*img_ratio), TARGET_SIZE), mode='constant')
 
         h = img_resized.shape[0]
-        start = int((64 - h) / 2)
+        start = int((TARGET_SIZE - h) / 2)
         final_img[start:start+h,0:,0:] = img_resized
     else:
         img_ratio = img_size[1] / img_size[0]
-        img_resized = resize(img, (64, int(64*img_ratio)), mode='constant')
+        img_resized = resize(img, (TARGET_SIZE, int(TARGET_SIZE*img_ratio)), mode='constant')
 
         w = img_resized.shape[1]
-        start = int((64 - w) / 2)
+        start = int((TARGET_SIZE - w) / 2)
         final_img[0:,start:start+w,0:] = img_resized
 
     mpimg.imsave(OUT_PATH + 'frog-' + str(count) + '.png', final_img)

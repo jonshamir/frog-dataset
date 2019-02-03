@@ -1,6 +1,8 @@
 # Frog Dataset
 Dataset of frogs on a white background for ML experiments
 
+![Sample](sample.png?raw=true "Sample Images")
+
 * Probably includes some duplicate images
 * Some of the images are of toads and not frogs!
 
