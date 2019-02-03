@@ -1,5 +1,5 @@
 # Frog Dataset
-Dataset of frogs on a white background for ML experiments
+Dataset of 7796 frog images on a white background for ML experiments
 
 ![Sample](sample.png?raw=true "Sample Images")
 
