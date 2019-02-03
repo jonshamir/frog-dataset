@@ -6,7 +6,7 @@ Dataset of 7796 frog images on a white background for ML experiments
 * Probably includes some duplicate images
 * Some of the images are of toads and not frogs!
 
-Includes a preprocessing script that does the following:
+The preprocessing script does the following:
 * Makes the background of the images pure white
 * Trims empty whitespace so that the frogs fill the frame
 * Resamples the images to a target size (64x64 by default)
