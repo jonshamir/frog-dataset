@@ -26,7 +26,7 @@ MASK_COLOR = (1.0,1.0,1.0) # In BGR format
 
 #== Processing =======================================================================
 def remove_background(img):
-    gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     # Edge detection
     edges = cv2.Canny(gray, CANNY_THRESH_1, CANNY_THRESH_2)
@@ -73,10 +73,11 @@ for img_path in img_paths:
     # Load image & remove background
     full_path = DATA_PATH + img_path
     img = cv2.imread(full_path)
-    img = remove_background(img) / 255
+    img_nobg = remove_background(img) / 255
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
     # Find image bounding box
-    img_coords = np.argwhere(rgb2gray(img) < 1)
+    img_coords = np.argwhere(rgb2gray(img_nobg) < 1)
     bb = [img_coords.min(axis=0), img_coords.max(axis=0)]
 
     # Trim whitespace & resample to target size
