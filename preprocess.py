@@ -13,8 +13,8 @@ from skimage.color import rgb2gray
 
 #== Parameters =======================================================================
 DATA_PATH = 'data-raw/'
-OUT_PATH = 'data-64/'
-TARGET_SIZE = 64
+TARGET_SIZE = 224
+OUT_PATH = 'data-'+str(TARGET_SIZE)+'/'
 FILETYPES = ['jpg', 'png']
 
 BLUR = 3
