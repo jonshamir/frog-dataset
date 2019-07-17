@@ -13,8 +13,8 @@ from skimage.color import rgb2gray
 
 #== Parameters =======================================================================
 DATA_PATH = 'data-raw/'
-TARGET_SIZE = 224
-OUT_PATH = 'data-'+str(TARGET_SIZE)+'/'
+TARGET_SIZE = 64
+OUT_PATH = 'edges-'+str(TARGET_SIZE)+'/'
 FILETYPES = ['jpg', 'png']
 
 BLUR = 3
@@ -100,5 +100,9 @@ for img_path in img_paths:
         start = int((TARGET_SIZE - w) / 2)
         final_img[0:,start:start+w,0:] = img_resized
 
-    mpimg.imsave(OUT_PATH + 'frog-' + str(count) + '.png', final_img)
+
+    # gray = cv2.cvtColor(final_img.astype(np.float32), cv2.COLOR_RGB2GRAY) * 255
+    # edges = 255 - cv2.Canny(gray.astype(np.uint8), 200, 350)
+
+    mpimg.imsave(OUT_PATH + 'frog-' + str(count) + '.png', final_img, cmap='gray')
     count += 1;
