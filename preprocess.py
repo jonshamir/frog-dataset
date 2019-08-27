@@ -1,3 +1,5 @@
+%matplotlib inline
+
 import cv2
 import numpy as np
 import pandas as pd
@@ -10,11 +12,10 @@ from sklearn.preprocessing import StandardScaler
 from skimage.transform import resize
 from skimage.color import rgb2gray
 
-
 #== Parameters =======================================================================
 DATA_PATH = 'data-raw/'
-TARGET_SIZE = 64
-OUT_PATH = 'edges-'+str(TARGET_SIZE)+'/'
+TARGET_SIZE = 224
+OUT_PATH = 'data-'+str(TARGET_SIZE)+'/'
 FILETYPES = ['jpg', 'png']
 
 BLUR = 3
@@ -87,14 +88,14 @@ for img_path in img_paths:
     img_size = img.shape;
     if img_size[0] < img_size[1]:
         img_ratio = img_size[0] / img_size[1]
-        img_resized = resize(img, (int(TARGET_SIZE*img_ratio), TARGET_SIZE), mode='constant')
+        img_resized = resize(img, (int(TARGET_SIZE*img_ratio), TARGET_SIZE), mode='constant', cval=1)
 
         h = img_resized.shape[0]
         start = int((TARGET_SIZE - h) / 2)
         final_img[start:start+h,0:,0:] = img_resized
     else:
         img_ratio = img_size[1] / img_size[0]
-        img_resized = resize(img, (TARGET_SIZE, int(TARGET_SIZE*img_ratio)), mode='constant')
+        img_resized = resize(img, (TARGET_SIZE, int(TARGET_SIZE*img_ratio)), mode='constant', cval=1)
 
         w = img_resized.shape[1]
         start = int((TARGET_SIZE - w) / 2)
